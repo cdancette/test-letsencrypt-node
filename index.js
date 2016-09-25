@@ -21,18 +21,18 @@ function approveDomains(opts, certs, cb) {
   // This is where you check your database and associated
   // email addresses with domains and agreements and such
 
+  opts.domains = ['coco.l4th.fr'];
 
   // The domains being approved for the first time are listed in opts.domains
   // Certs being renewed are listed in certs.altnames
-  if (certs) {
-    opts.domains = certs.altnames;
-    opts.email = "admin@l4th.fr";
-    opts.agreeTos = true;
-
-  }
-  else {
-    opts.email = 'john.doe@example.com';
-  }
+  // if (certs) {
+  //   opts.domains = certs.altnames;
+  //   opts.email = "admin@l4th.fr";
+  //   opts.agreeTos = true;
+  // }
+  // else {
+  //   opts.email = 'john.doe@example.com';
+  // }
 
   cb(null, { options: opts, certs: certs });
 }
@@ -74,4 +74,3 @@ lex.register({
     console.error(err.stack);
 
   });
-});
