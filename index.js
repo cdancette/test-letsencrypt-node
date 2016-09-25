@@ -26,10 +26,12 @@ function approveDomains(opts, certs, cb) {
   // Certs being renewed are listed in certs.altnames
   if (certs) {
     opts.domains = certs.altnames;
+    opts.email = "admin@l4th.fr";
+    opts.agreeTos = true;
+
   }
   else {
     opts.email = 'john.doe@example.com';
-    opts.agreeTos = true;
   }
 
   cb(null, { options: opts, certs: certs });
